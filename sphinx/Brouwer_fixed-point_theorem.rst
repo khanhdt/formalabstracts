@@ -23,8 +23,15 @@ preformally: ::
   (B : closed_ball, homeomorphic K, subset (Euclideanⁿ))
   then there exists (p ∈ K), f p = p.
 
-Notes. Here Euclidean space is considered as a metric space with the Euclidean metric.
-Its structure as a vector space is not needed.
+Notes.
 
+* Here Euclidean space is considered as a metric space with the
+  Euclidean metric.  Its structure as a vector space is not needed.
 
+* A general form of the Brouwer fixed-point theorem based on the
+  Lefschetz fixed-point theorem can be found in `Belk's stack exchange
+  comment <https://math.stackexchange.com/a/423304>`_.
+
+* This theorem (for compact convex sets)
+  has been `formalized in HOL Light <http://www.cl.cam.ac.uk/~jrh13/papers/neworleans.pdf>`_.
 
