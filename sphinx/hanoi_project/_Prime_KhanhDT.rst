@@ -6,7 +6,7 @@ HOMEWORKS
 - Definition:
    *Twin primes* are pairs of prime numbers such that the larger member of the pair is exactly 2 greater than the smaller.
    
-   *I.e.*: primes p and q such that q - p = 2. Explicitly, the first few twin primes are (3, 5), (5, 7), (11, 13), (17, 19), (29, 31), and (41, 43).
+   *I.e.*: primes :math: `p` and :math: `q` such that q - p = 2. Explicitly, the first few twin primes are (3, 5), (5, 7), (11, 13), (17, 19), (29, 31), and (41, 43).
 
 - Link to a source Definition of Twin Primes: [#Twin]_.
 
@@ -15,8 +15,11 @@ Formal statement
 
 .. code-block:: lean
 
- def TwinPrime: Prop:= 
- ∀n:ℕ, ∃p: ℕ, p>n ∧ isPrime p ∧ isPrime (p+2)
+    def isPrime (n: ℕ): Prop:=
+    (n≥2)∧ (∀m:ℕ, m≥1 ∧ m∣n→ (m=1 ∨ m=n))
+
+    def TwinPrime: Prop:= 
+    ∀n:ℕ, ∃p: ℕ, p>n ∧ isPrime p ∧ isPrime (p+2)
 
 **Exercise 2 - Goldbach’s Conjecture**
 ------------
@@ -37,8 +40,11 @@ Formal statement
 
 .. code-block:: lean
 
- def GoldBach (n:ℕ): Prop:=
- (n>2) ∧ (2∣n)∧ (∃ p q: ℕ, isPrime p ∧ isPrime q ∧ n = p+q)
+   def isPrime (n: ℕ): Prop:=
+   (n≥2)∧ (∀m:ℕ, m≥1 ∧ m∣n→ (m=1 ∨ m=n))
+
+   def GoldBach (n:ℕ): Prop:=
+   (n>2) ∧ (2∣n)∧ (∃ p q: ℕ, isPrime p ∧ isPrime q ∧ n = p+q)
 
 **Exercise 3 - The Opperman Conjecture**
 ------------
@@ -51,6 +57,9 @@ Formal statement
 ^^^^^^^^^^^^^^^^
 
 .. code-block:: lean
+
+ def isPrime (n: ℕ): Prop:=
+ (n≥2)∧ (∀m:ℕ, m≥1 ∧ m∣n→ (m=1 ∨ m=n))
 
  def Opperman: Prop:=
  ∀n: ℕ, ∃p:ℕ, isPrime p ∧ p>n^2 ∧ p< (n+1)^2
